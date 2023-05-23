@@ -39,11 +39,8 @@ AUTHOR = " Oliver Bonham-Carter"
 AUTHORMAIL = "obonhamcarter@allegheny.edu"
 
 # directories
-#OUTPUT_DIR = "/tmp/0out/" # all results are saved in this local directory
 OUTPUT_DIR = "0out/" # all results are saved in this local directory
-#INPUT_DIR = "data/"
 
-#port = 13000
 port = 5001
 
 def bighelp():
@@ -70,7 +67,6 @@ def bighelp():
             print("\t [+] \U0001f600 ", command_str)
         else:
             print("\t [+] :-) ", command_str)
-#        print("\t+ INPUT directory (your data files are here)     : ",INPUT_DIR)
 #        print("\t+ OUTPUT directory (your output is placed here)  : ",OUTPUT_DIR)
         print("\n\t [+] Using port :",port)
         print("\t [+] My IP is :",getMyIP())
@@ -105,16 +101,11 @@ def get_platformType():
 #end of get_platformType()
 
 
-
-#host = "127.0.0.1" # set to IP address of target computer
-#host = "192.168.1.14" # set to IP address of target computer
-
 def sender(remoteIP):
     ''' text sending function'''
     #print("\t Remote IP is: ",remoteIP)
     myHost_str = getMyIP() # "192.168.1.14"
     host = remoteIP # "192.168.1.28" # the IP address of target computer
-    #port = 13000
     addr = (host, port)
     UDPSock = socket(AF_INET, SOCK_DGRAM)
     print("\t [+] Sending to host: ",host)
@@ -223,8 +214,7 @@ def senderBinFile(fileName_str, remoteIP, port):
             if not bytes_read:
                 # file transmitting is done
                 break
-            # we use sendall to assure transimission in
-            # busy networks
+            # we use sendall to assure transmission for busy networks
             s.sendall(bytes_read)
             # update the progress bar
             progress.update(len(bytes_read))
@@ -237,9 +227,6 @@ def senderBinFile(fileName_str, remoteIP, port):
 def receiverBinFile():
     """
     Server receiver of the file
-    ref: https://www.thepythoncode.com/code/send-receive-files-using-sockets-python
-    sudo apt install python3-pip # get pip3
-    Note: pip3 install tqdm
     """
     import socket
 
@@ -302,7 +289,6 @@ def receiverBinFile():
 def receiverFile():
     # receiving file function
     host = ""
-    #port = 13000
     buf = 1024
     addr = (host, port)
     UDPSock = socket(AF_INET, SOCK_DGRAM)
