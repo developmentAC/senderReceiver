@@ -292,7 +292,8 @@ def receiverBinFile():
         unit_scale=True,
         unit_divisor=1024,
     )
-    with open(filename, "wb") as f:
+    checkOUTPUT_DIR(OUTPUT_DIR)
+    with open(OUTPUT_DIR+filename, "wb") as f:
         for _ in progress:
             # read 1024 bytes from the socket (receive)
             bytes_read = client_socket.recv(BUFFER_SIZE)
@@ -409,7 +410,6 @@ def parser(f, tag_str):
     #    f[f.find("192"):f.find("192") + 12
     return f[f.find(tag_str) : f.find(tag_str) + 12]
 
-
 # end of parser()
 
 
@@ -418,14 +418,6 @@ cli = typer.Typer()
 
 
 @cli.command()
-
-
-#  def main(first: str = "", middle: str = "", last: str = ""): file: Path = typer.Option(None),
-# def main(
-#     link=typer.Option(None),
-#     bighelp: bool = False,
-#     biggerhelp: bool = False,
-# ) -> None:
 
 
 def main(
