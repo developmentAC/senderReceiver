@@ -8,30 +8,6 @@ from rich.console import Console
 # binafry files:
 # https://stackoverflow.com/questions/46979262/python-socket-how-to-send-a-file-to-another-computer-which-is-on-a-different-ne
 
-
-# Setup
-# Linux machines install ifconfig to get own ip address
-# sudo apt-get install net-tools # necessary for ifconfig
-
-# Install python virtual environment capabilities
-# sudo apt install python3-pip # get pip3 # if needed to install tqdm
-
-# Create a virtual environment
-# python3 -m venv myvenv
-
-# Activate virtual environment
-# source myvenv/bin/activate
-
-# Use pip to install necessary libraries
-# python3 -m pip install tqdm
-# pip3 install tqdm
-
-# The tqdm package is for the download bar. Other ideas for bars may come from
-# reference https://stackoverflow.com/questions/15644964/python-progress-bar-and-downloads
-
-# install ifconfig capabilities
-# sudo apt install net-tools
-
 # Written by: Oliver Bonham-Carter
 DATE = "22 May 2023"
 VERSION = "iii"
@@ -44,7 +20,7 @@ OUTPUT_DIR = "0out/"  # all results are saved in this local directory
 port = 5001
 
 
-def bighelp():
+def bigHelp():
     """Helper function"""
     h_str = "   " + DATE + " | version: " + VERSION + " |" + AUTHOR + " | " + AUTHORMAIL
     print("  " + len(h_str) * "-")
@@ -433,7 +409,7 @@ cli = typer.Typer()
 
 
 def main(
-    task: str = "", remoteIP: str = "", fileName_str: str = "", bighelp: bool = False
+    task: str = "", remoteIP: str = "", fileName: str = "", bighelp: bool = False
 ):
     """Driver function"""
     print("\t Welcome to the chat program:")
@@ -450,7 +426,7 @@ def main(
 
     elif task.lower() == "sf":
         # print("\t senderFile()")
-        senderFile(remoteIP, fileName_str)
+        senderFile(remoteIP, fileName)
 
     elif task.lower() == "rf":
         # print("\t receiverFile()")
@@ -461,10 +437,13 @@ def main(
         receiverBinFile()
 
     elif task.lower() == "sbf":
-        # print("\t senderBinFile(fileName_str, remoteIP, port)")
-        senderBinFile(fileName_str, remoteIP, port)
+        # print("\t senderBinFile(fileName, remoteIP, port)")
+        senderBinFile(fileName, remoteIP, port)
 
     ####
+
+    elif bighelp:
+        bigHelp()
 
     else:
         # print("\t\n Unknown option ...",)
@@ -483,24 +462,3 @@ def main(
 
 import os, sys, socket, tqdm
 from socket import *
-
-
-# if __name__ == '__main__':
-
-#         if len(sys.argv) == 2: # one parameter at command line
-#             print("Please enter IP address as a parameter.")
-#             sys.exit()
-#         # note: the number of command line parameters is n + 1
-#             main(sys.argv[1])#,sys.argv[3], sys.argv[4]),sys.argv[5])
-#         elif len(sys.argv) == 3: # one parameter at command line
-#             #print("three options")
-#         # note: the number of command line parameters is n + 1
-#             main(sys.argv[1],sys.argv[2])#,sys.argv[3], sys.argv[4]),sys.argv[5])
-#         elif len(sys.argv) == 4: # one parameter at command line
-#             #print("four options")
-#         # note: the number of command line parameters is n + 1
-#             main(sys.argv[1],sys.argv[2],sys.argv[3])#, sys.argv[4]),sys.argv[5])
-
-#         else:
-#             help()
-#             sys.exit()
