@@ -66,8 +66,8 @@ This program uses [Poetry](https://python-poetry.org/docs/).
     if platform_str.lower() == "linux" or platform_str.lower() == "osx":
         print("\t ", command_str)
     # else:
-        # print("\t [+] :-) ", command_str)
-    print("\t+ OUTPUT directory (your output is placed here)  : ",OUTPUT_DIR)
+    # print("\t [+] :-) ", command_str)
+    print("\t+ OUTPUT directory (your output is placed here)  : ", OUTPUT_DIR)
     print("\n\t [+] Using port :", port)
     print("\t [+] My IP is :", getMyIP())
 
@@ -174,6 +174,7 @@ def senderFile(remoteIP, fileName_str):
     UDPSock.close()
     print("\t + File :", fileName_str, "sent ...")
     os._exit(0)
+
 
 # end of sender()
 
@@ -293,7 +294,7 @@ def receiverBinFile():
         unit_divisor=1024,
     )
     checkOUTPUT_DIR(OUTPUT_DIR)
-    with open(OUTPUT_DIR+filename, "wb") as f:
+    with open(OUTPUT_DIR + filename, "wb") as f:
         for _ in progress:
             # read 1024 bytes from the socket (receive)
             bytes_read = client_socket.recv(BUFFER_SIZE)
@@ -410,6 +411,7 @@ def parser(f, tag_str):
     #    f[f.find("192"):f.find("192") + 12
     return f[f.find(tag_str) : f.find(tag_str) + 12]
 
+
 # end of parser()
 
 
@@ -418,11 +420,7 @@ cli = typer.Typer()
 
 
 @cli.command()
-
-
-def main(
-    task: str = "", remoteIP: str = "", fileName: str = "", bighelp: bool = False
-):
+def main(task: str = "", remoteIP: str = "", fileName: str = "", bighelp: bool = False):
     """Driver function"""
     print("\t Welcome to the chat program:")
     print("\t My IP is: ", getMyIP())
