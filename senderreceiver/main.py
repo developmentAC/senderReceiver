@@ -29,24 +29,45 @@ def bigHelp():
 
     print("\n\tThe chat and file sending program between machines by IP.")
     platform_str = get_platformType()
-    print("\n\t [+] OS type: ", platform_str)  # determine what the os is.
-    # print("""\n\tLibrary installation notes:""")
-    command_str = "USAGE: programName {s, r, sf, rf, sbf, rbf}"
-    command_str = command_str + "\n\t [+] 'r' = receive and 's' = send"
-    command_str = command_str + "\n\t [+] 'rf' = receive file and 'sf' = send file"
-    command_str = (
-        command_str + "\n\t [+] 'rbf' = receive bin file and 'sbf' = send bin file"
-    )
-    command_str = command_str + "\n\t  ex: send text: programName s remoteIP"
-    command_str = command_str + "\n\t  ex:  rec text: programName r 0"
-    command_str = command_str + "\n\t  ex: send bin file: programName sbf remoteIP file"
-    command_str = command_str + "\n\t  ex:  rec bin file: programName rbf 0"
+    print("\n\t [+] OS type: ", platform_str)  # determine the OS
+
+    command_str = """
+-----------------------------------------------------------
+This program uses [Poetry](https://python-poetry.org/docs/).
+
+## Usage:
+
+* Setup poetry from the senderReceiver/ directory or where you are able to find the File pyproject.toml
+   + poetry install
+
+* Get basic help
+   + poetry run senderreceiver --help
+
+* Get advanced help
+   + poetry run senderreceiver --bighelp
+
+* Receive Mode: Start a client to receive incoming messages and text files.
+   + poetry run senderreceiver --task r
+
+* Send a chat message to another machine in receive mode
+   + poetry run senderreceiver --task s --remoteip 127.0.0.1
+
+* Send a text file to another machine running in receive mode
+   + poetry run senderreceiver --task sf --remoteip 127.0.0.1 --filename myFile.md
+
+* Place a machine in receive mode for _binary_ files
+   + poetry run senderreceiver --task rbf
+
+* Send a binary file to another machine in binary receive mode.
+   + poetry run senderreceiver --bighelp --task sbf --remoteip 127.0.0.1 --filename myFile.bin
+-----------------------------------------------------------
+"""
 
     if platform_str.lower() == "linux" or platform_str.lower() == "osx":
-        print("\t [+] \U0001f600 ", command_str)
-    else:
-        print("\t [+] :-) ", command_str)
-    #        print("\t+ OUTPUT directory (your output is placed here)  : ",OUTPUT_DIR)
+        print("\t ", command_str)
+    # else:
+        # print("\t [+] :-) ", command_str)
+    print("\t+ OUTPUT directory (your output is placed here)  : ",OUTPUT_DIR)
     print("\n\t [+] Using port :", port)
     print("\t [+] My IP is :", getMyIP())
 
@@ -153,7 +174,6 @@ def senderFile(remoteIP, fileName_str):
     UDPSock.close()
     print("\t + File :", fileName_str, "sent ...")
     os._exit(0)
-
 
 # end of sender()
 
