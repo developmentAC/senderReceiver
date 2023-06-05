@@ -11,15 +11,20 @@ This program uses [Poetry](https://python-poetry.org/docs/).
 ## Usage:
 
 * Setup `poetry` from the `senderReceiver/` directory or where you are able to find the File `pyproject.toml`
-   + `poetry install`
+   + `poetry install` 
+
+Note: if there is an error when running the above command, try removing the File `poetry.lock`. Then rerun `poetry install`. 
 
 * Get basic help
    + `poetry run senderreceiver --help`
+
 * Get advanced help
    + `poetry run senderreceiver --bighelp`
 
 * Receive Mode: Start a client to receive incoming messages and text files.
    + `poetry run senderreceiver --task r`
+
+Note: the IP of the receiving machine will be displayed on the screen after this command. Working like a phone number, this IP number must be communicated to the other sending machine in order for a message to be sent to the receiving machine. The ip number will be used with the parameter `--remoteip` on the sending machine.
 
 * Send a chat message to another machine in receive mode
    + `poetry run senderreceiver --task s --remoteip 127.0.0.1` 
