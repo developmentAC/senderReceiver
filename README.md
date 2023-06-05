@@ -4,7 +4,7 @@ A Python socket-based instant messenger.
 
 # Date
 
-22 May 2023
+4 June 2023
 
 This program uses [Poetry](https://python-poetry.org/docs/).
 
