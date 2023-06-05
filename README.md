@@ -36,6 +36,6 @@ Note: the IP of the receiving machine will be displayed on the screen after this
    + `poetry run senderreceiver --task rbf`
 
 * Send a binary file to another machine in binary receive mode.
-   + `poetry run senderreceiver --bighelp --task sbf --remoteip 127.0.0.1 --filename myFile.bin`
+   + `poetry run senderreceiver --task sbf --remoteip 127.0.0.1 --filename myFile.bin`
 
 More documentation to come!!
