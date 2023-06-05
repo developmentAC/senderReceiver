@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "senderreceiver"
-version = "0.1.0"
+version = "0.5.0"
 description = ""
 authors = ["Oliver Bonham-Carter <obonhamcarter@allegheny.edu>"]
 readme = "README.md"
