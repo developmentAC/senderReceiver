@@ -24,7 +24,7 @@ Note: if there is an error when running the above command, try removing the File
 * Receive Mode: Start a client to receive incoming messages and text files.
    + `poetry run senderreceiver --task r`
 
-Note: the IP of the receiving machine will be displayed on the screen after this command. Working like a phone number, this IP number must be communicated to the other sending machine in order for a message to be sent to the receiving machine. The ip number will be used with the parameter `--remoteip` on the sending machine.
+Note: the IP of the receiving machine will be displayed on the screen after this command has been executed. Working like a phone number, this IP number must be communicated to the sending machine in order for a message to be sent to the receiving machine. The IP number will be used with the parameter `--remoteip` on the sending machine.
 
 * Send a chat message to another machine in receive mode
    + `poetry run senderreceiver --task s --remoteip 127.0.0.1` 
