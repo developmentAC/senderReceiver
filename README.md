@@ -6,7 +6,15 @@ A Python socket-based instant messenger.
 
 4 June 2023
 
-This program uses [Poetry](https://python-poetry.org/docs/).
+## Description
+
+The program `SenderReceiver` has two modes: one for **sending**, and another for **receiving** messages. The sender pushes messages to a receiver which is specified by an IP address. To have a conversation (or send a text of binary file), both parties will need to have a **sender-client** and a **receiver-client** open for receiving messages and then replying.
+
+The `SenderReceiver` program can handle both receiving and sending messages with the use of parameters. The instructions are below to show how to use the parameters.  
+
+## Pre-setup
+
+This program uses [Poetry](https://python-poetry.org/docs/) to handle virtual environments for the code. This means that you will have to install *Poetry* as a software on your machine before you will be able to run the software in this repository.
 
 ## Usage:
 
